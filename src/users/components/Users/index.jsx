@@ -19,7 +19,19 @@ export const Users = ({ items, isLoading }) => {
         </div>
       ) : (
         <ul className="users-list">
-          <User />
+          {items.map((item) => (
+            <User
+              key={item.id}
+              {...item}
+
+              // different record all component
+              // id={item.id}
+              // first_name={item.first_name}
+              // last_name={item.last_name}
+              // email={item.email}
+              // avatar={item.avatar}
+            />
+          ))}
         </ul>
       )}
       <button className="send-invite-btn">Send letter</button>
