@@ -3,8 +3,9 @@ import styles from "./App.module.scss";
 
 // import Modal from "./modal/Modal";
 // import Quiz from "./quiz/Quiz";
-import Main from "./users/Main";
+// import Main from "./users/Main";
 
+import Main from "./currency/Main";
 const App = () => {
   // const [count, setCount] = React.useState(0);
 
@@ -30,6 +31,9 @@ const App = () => {
       {/* <Quiz /> */}
 
       {/* users  */}
+      {/* <Main /> */}
+
+      {/* currency */}
       <Main />
     </div>
   );
