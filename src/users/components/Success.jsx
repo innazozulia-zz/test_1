@@ -5,9 +5,11 @@ export const Success = ({ count }) => {
     <div class="success-block">
       <img src="/assets/success.svg" alt="Success" />
       <h3>Success!</h3>
-      <p>n invitation has been sent to all {count}users</p>
+      <p>invitation has been sent to all {count} users</p>
 
-      <button className="send-invite-btn">Back</button>
+      <a href="/">
+        <button className="send-invite-btn">Back</button>
+      </a>
     </div>
   );
 };
