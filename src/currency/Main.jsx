@@ -40,9 +40,17 @@ const Main = () => {
   const onChangeToVallueCurrency = (value) => {
     const result = (rates[fromCurrency] / rates[toCurrency]) * value;
     setToValueCurrency(value);
-    setFromCurrency(result);
+    setFromValueCurrency(result);
   };
+  //rander FROM when we change currency
+  React.useEffect(() => {
+    onChangeFromValueCurrency(fromValueCurrency);
+  }, [fromCurrency]);
 
+  //rander TO when we change currency
+  React.useEffect(() => {
+    onChangeToVallueCurrency(toValueCurrency);
+  }, [toCurrency]);
   return (
     <div className="wrapper">
       <Block
