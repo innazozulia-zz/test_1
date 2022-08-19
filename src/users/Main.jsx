@@ -36,7 +36,7 @@ function App() {
       setInvites((prev) => [...prev, id]);
     }
   };
-  // senf invite
+  // send invite
   const onClickInvites = () => {
     setSuccess(true);
   };

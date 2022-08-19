@@ -5,6 +5,8 @@ import "./indexCollection.scss";
 const Collection = () => {
   //state for render
   const [collection, setCollection] = React.useState([]);
+  // searchValue
+  const [searchValue, setSearchValue] = React.useState("");
 
   // first render
   React.useEffect(() => {
@@ -12,12 +14,17 @@ const Collection = () => {
       .then((res) => res.json())
       .then((json) => {
         setCollection(json);
-        console.log(json);
+        // console.log(json);
       })
       .catch((err) => {
         alert("Loading Error. Please try again.");
       });
   }, []);
+  // search Valu eon Change
+
+  const onChangeSearchValue = (event) => {
+    setSearchValue(event.target.value);
+  };
 
   return (
     <div className="wrapper__collection">
@@ -30,12 +37,24 @@ const Collection = () => {
           <li>Architecture</li>
           <li>Cities</li>
         </ul>
-        <input className="search-input" placeholder="Search ..." />
+        <input
+          value={searchValue}
+          onChange={onChangeSearchValue}
+          className="search-input"
+          placeholder="Search ..."
+        />
       </div>
       <div className="content">
-        {collection.map((obj) => (
-          <CollectionItem name={obj.name} images={obj.photos} />
-        ))}
+        {collection
+          .filter((obj) => {
+            const name = obj.name.toLowerCase();
+            if (name.includes(searchValue.toLowerCase())) {
+              return true;
+            }
+          })
+          .map((obj) => (
+            <CollectionItem key={obj.id} name={obj.name} images={obj.photos} />
+          ))}
       </div>
       <ul className="pagination">
         <li>1</li>
