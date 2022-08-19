@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./App.module.scss";
+import Collection from "./collection/Collection";
 
 // import Modal from "./modal/Modal";
 // import Quiz from "./quiz/Quiz";
@@ -34,7 +35,10 @@ const App = () => {
       {/* <Main /> */}
 
       {/* currency */}
-      <Main />
+      {/* <Main /> */}
+
+      {/* photo collection */}
+      <Collection />
     </div>
   );
 };

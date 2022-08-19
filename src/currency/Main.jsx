@@ -21,7 +21,7 @@ const Main = () => {
       .then((res) => res.json())
       .then((json) => {
         setRates(json.rates);
-        console.log(json.rates);
+        // console.log(json.rates);
       })
       .catch((err) => {
         alert("Error!");
@@ -33,14 +33,14 @@ const Main = () => {
     const figure = value / rates[fromCurrency];
     const result = figure * rates[toCurrency];
     setFromValueCurrency(value);
-    setToValueCurrency(result);
+    setToValueCurrency(result.toFixed(3));
   };
 
   // get value  TO currency
   const onChangeToVallueCurrency = (value) => {
     const result = (rates[fromCurrency] / rates[toCurrency]) * value;
     setToValueCurrency(value);
-    setFromValueCurrency(result);
+    setFromValueCurrency(result.toFixed(3));
   };
   //rander FROM when we change currency
   React.useEffect(() => {
